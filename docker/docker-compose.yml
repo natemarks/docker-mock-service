@@ -7,7 +7,7 @@ services:
     image: mock-service
     build:
       dockerfile: Dockerfile
-      context: ./mock_service
+      context: mock-service
     command: /entrypoint.sh
     env_file:
         - .env

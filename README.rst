@@ -2,7 +2,7 @@ You need to install go to build this container.
 https://golang.org/doc/install
 
 Go doesn't need to be installed in the container itself, but when we want to update the preflight or mock-service
-binaries we need to clone those two repose and run go build to create the correct version of the l;inux binary. That binary is put in docker/mock_service.  youo do this by running :
+binaries we need to clone those two repose and run go build to create the correct version of the l;inux binary. That binary is put in docker/mock-service.  youo do this by running :
 
 ::
 
@@ -49,12 +49,12 @@ make build will do the following
 
 
 
-    cd docker/mock_service
+    cd docker/mock-service
     docker build -t mock-service .
     cd ..
     docker-compose up -d
      curl -X GET 'http://localhost:8080/?wait=3000ms'
-    docker logs mock_service
+    docker logs mock-service
     docker-compose down
 
 
