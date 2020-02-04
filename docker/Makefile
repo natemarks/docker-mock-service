@@ -1,5 +1,5 @@
 COMPOSE_RUN_NODE = docker-compose run --rm node
-COMPOSE_UP_NODE = docker-compose up -d node
+COMPOSE_UP_NODE = docker-compose up -d mock-service
 COMPOSE_UP_NODE_DEV = docker-compose up node_dev
 COMPOSE_RUN_SHELLCHECK = docker-compose run --rm shellcheck
 COMPOSE_RUN_DOCKERIZE = docker-compose run --rm dockerize
@@ -35,7 +35,7 @@ build:
 	cp build/mock-service/mock-service mock_service/
 	rm -rf ${HOME}/build/mock-service
 
-deploy:
+run:
 	$(COMPOSE_RUN_NODE) scripts/deploy.sh
 
 cleanDocker:

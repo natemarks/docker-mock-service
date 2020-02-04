@@ -2,7 +2,5 @@
 #  CRITICAL:  set -e  to exit the script and prevent the service from being started if preflight exits
 #  with a non-zero code
 set -e
-
-
-
-sleep 60
+./preflight
+./mock-service

@@ -2,9 +2,13 @@ version: "3.7"
 services:
   mock-service:
     image: mock-service
-    network_mode: host
-    build: mock_service
+    build:
+      dockerfile: Dockerfile
+      context: ./mock_service
     command: /entrypoint.sh
+    env_file:
+        - .env
     ports:
-     - "80:80"
+     - "8080:8080"
+     - "8786:8786"
 
