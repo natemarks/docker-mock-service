@@ -1,4 +1,4 @@
 .env
 .idea/
-mock-service
-preflight
+docker/mock-service/mock-service
+docker/mock-service/preflight
