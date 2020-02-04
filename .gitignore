@@ -1,5 +1,4 @@
 .env
 .idea/
-build/
-preflight/
-mock-service/
+mock-service
+preflight

@@ -1,4 +1,4 @@
-You need to install go to update this container:
+You need to install go to build this container.
 https://golang.org/doc/install
 
 Go doesn't need to be installed in the container itself, but when we want to update the preflight or mock-service
