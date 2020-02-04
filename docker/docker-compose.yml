@@ -1,6 +1,8 @@
 version: "3.7"
 services:
   mock-service:
+    stop_signal: SIGTERM
+    stop_grace_period: 30s
     container_name: mock-service
     image: mock-service
     build:

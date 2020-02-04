@@ -1,4 +1,4 @@
-verbose: True
+verbose: False
 organization: "MyCompanyName"
 team: "DevOps"
 checked_environment_variables:
