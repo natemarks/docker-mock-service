@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  mock-service:
+    image: mock-service
+    network_mode: host
+    build: mock_service
+    command: /entrypoint.sh
+    ports:
+     - "80:80"
+

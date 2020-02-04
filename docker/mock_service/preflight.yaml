@@ -1,0 +1,5 @@
+verbose: True
+organization: "MyCompanyName"
+team: "DevOps"
+checked_environment_variables:
+  - SERVICE_GRACEFUL_SHUTDOWN_TIMEOUT
