@@ -1,9 +1,5 @@
-COMPOSE_RUN_NODE = docker-compose run --rm node
+COMPOSE_RUN_NODE = docker-compose run --rm mock-service
 COMPOSE_UP_NODE = docker-compose up -d mock-service
-COMPOSE_UP_NODE_DEV = docker-compose up node_dev
-COMPOSE_RUN_SHELLCHECK = docker-compose run --rm shellcheck
-COMPOSE_RUN_DOCKERIZE = docker-compose run --rm dockerize
-COMPOSE_RUN_TESTCAFE = docker-compose run --rm testcafe
 GO_PREFLIGHT_REPO = https://github.com/natemarks/preflight.git
 GO_PREFLIGHT_VER = v0.0.7
 GO_MOCK-SERVICE_REPO = https://github.com/natemarks/mock-service.git
@@ -11,16 +7,7 @@ GO_MOCK-SERVICE_VER = v0.0.2
 ENVFILE ?= env.template
 
 
-.PHONY: build
-all:
-	ENVFILE=env.example $(MAKE) envfile cleanDocker deps lint start test build clean
-
-onPullRequest: envfile cleanDocker deps lint start test build clean
-
-onMasterChange: envfile cleanDocker deps lint start test build deploy clean
-
-envfile:
-	cp -f $(ENVFILE) .env
+.PHONY: build run stop
 
 build:
 	mkdir -p ${HOME}/build/preflight
@@ -36,12 +23,7 @@ build:
 	rm -rf ${HOME}/build/mock-service
 
 run:
-	$(COMPOSE_RUN_NODE) scripts/deploy.sh
+	$(COMPOSE_UP_NODE)
 
-cleanDocker:
+stop:
 	docker-compose down --remove-orphans
-
-clean:
-	$(COMPOSE_RUN_NODE) scripts/clean.sh
-	$(MAKE) cleanDocker
-	rm -f .env
